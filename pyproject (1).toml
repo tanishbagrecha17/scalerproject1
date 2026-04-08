@@ -1,0 +1,29 @@
+[project]
+name = "financial-data-cleaning-env"
+version = "1.0.0"
+description = "A real-world financial data cleaning environment using the OpenEnv specification."
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "pandas",
+    "pydantic",
+    "openai",
+    "flask",
+    "openenv-core>=0.2.0",
+]
+
+[project.scripts]
+serve = "server.app:app"
+
+[project.entry-points."openenv.envs"]
+financial-data-cleaning-env = "env:FinancialDataEnv"
+
+[openenv]
+entry_point = "env:FinancialDataEnv"
+tasks = ["easy", "medium", "hard"]
+inference_script = "inference.py"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"

@@ -1,0 +1,37 @@
+name: financial-data-cleaning-env
+
+description: >
+  A real-world environment simulating financial data cleaning tasks.
+  Agents must clean messy transaction datasets by removing duplicates,
+  fixing invalid values, and improving overall data quality.
+
+entry_point: env:FinancialDataEnv
+
+tasks:
+  - name: easy
+    description: Remove duplicates and missing customers
+
+  - name: medium
+    description: Fix negative amounts and validate data
+
+  - name: hard
+    description: Fully clean dataset with anomaly handling
+
+observation_space:
+  type: dict
+  fields:
+    dataset: list
+    step_count: int
+    quality_score: float
+
+action_space:
+  type: dict
+  fields:
+    action_type: string
+    column: optional
+    value: optional
+    row_id: optional
+
+reward:
+  type: float
+  range: [0.0, 1.0]
