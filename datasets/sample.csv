@@ -1,0 +1,6 @@
+invoice_id,customer,amount,currency,date,status
+101,Alice,500,USD,2024-01-10,paid
+102,Bob,-200,USD,2024-01-11,paid
+103,,300,INR,invalid_date,paid
+101,Alice,500,USD,2024-01-10,paid
+104,Charlie,1000000,USD,2024-01-12,pending
